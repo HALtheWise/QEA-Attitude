@@ -63,20 +63,38 @@ Cell[BoxData[
   ImageSizeCache->{57., {0., 12.}}]], "Output"]
 }, Open  ]],
 
-Cell[CellGroupData[{
+
+
+
+Cell[CellGroupData[{Cell[BoxData[
+ RowBox[{
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"context", "=", "\"\<xxx\>\""}], "}"}], ",", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Context", "[", "]"}], "\[Equal]", "context"}], ",", 
+      RowBox[{"End", "[", "]"}]}], "]"}]}], "]"}], ";", 
+  RowBox[{"Dynamic", "[", 
+   RowBox[{"Refresh", "[", 
+    RowBox[{
+     RowBox[{"Context", "[", "]"}], ",", 
+     RowBox[{"UpdateInterval", "\[Rule]", "1"}]}], "]"}], 
+   "]"}]}]], "Input",
+ GeneratedCell->False,
+ CellAutoOverwrite->False],
 
 Cell[BoxData[
- RowBox[{"With", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"context", "=", "\"\<xxx\>\""}], "}"}], ",", 
-   RowBox[{"If", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Context", "[", "]"}], "\[Equal]", "context"}], ",", 
-     RowBox[{"End", "[", "]"}], ",", "\"\<Not in context\>\""}], 
-    "]"}]}], "]"}]], "Input"]
-}, Open  ],GeneratedCell->False,CellAutoOverwrite->False]
+ DynamicBox[ToBoxes[
+   Refresh[
+    Context[], UpdateInterval -> 1], StandardForm],
+  ImageSizeCache->{71., {0., 13.}}]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->False]
+}, Open  ]]
+
 }, Open  ]];
 
 CellPrint[cell/.replacerules]
