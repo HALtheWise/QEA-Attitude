@@ -1,12 +1,13 @@
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["\:d83d\:dcab Bset 2: Rotating Reference Frames", "Title",
+Cell["\:d83d\:dcab Bset 2: All Pendulums. All the time.", "Title",
  CellChangeTimes->{{3.6826813785335817`*^9, 3.682681379590159*^9}, {
    3.682710876474948*^9, 3.682710892530466*^9}, {3.682980932118884*^9, 
    3.682980953632352*^9}, {3.684152148208818*^9, 3.684152163265457*^9}, {
    3.684355522339327*^9, 3.6843555383359423`*^9}, 3.684507642144094*^9, {
-   3.684507677082271*^9, 3.684507682570043*^9}}],
+   3.684507677082271*^9, 3.684507682570043*^9}, {3.684541245284643*^9, 
+   3.6845412506801167`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -16,6 +17,703 @@ Cell[BoxData[{
  InitializationCell->True,
  CellChangeTimes->{{3.682710916634346*^9, 3.682710945444784*^9}, {
   3.682711378657494*^9, 3.682711389969411*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Planar Pendulum", "Section",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.684541517057228*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"context", "=", "\"\<s1`\>\""}], "}"}], ",", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Context", "[", "]"}], " ", "\[NotEqual]", " ", "context"}], 
+      ",", 
+      RowBox[{"Begin", "[", "context", "]"}]}], "]"}]}], "]"}], ";", 
+  RowBox[{"Dynamic", "[", 
+   RowBox[{"Refresh", "[", 
+    RowBox[{
+     RowBox[{"Context", "[", "]"}], ",", 
+     RowBox[{"UpdateInterval", "\[Rule]", "1"}]}], "]"}], "]"}]}]], "Input",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.684541517086158*^9}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Refresh[
+    Context[], UpdateInterval -> 1], StandardForm],
+  ImageSizeCache->{30., {0., 13.}}]], "Output",
+ CellChangeTimes->{{3.684541517105788*^9, 3.684541526070147*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Step 2: Define reasonable constants", "Subsection",
+ CellChangeTimes->{{3.684542405064396*^9, 3.68454241022128*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"parameters", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"m", "\[Rule]", "1"}], ",", 
+    RowBox[{"l", "\[Rule]", "1"}], ",", 
+    RowBox[{"g", "\[Rule]", 
+     RowBox[{"QuantityMagnitude", "@", 
+      RowBox[{"UnitConvert", "@", 
+       RowBox[{
+        TemplateBox[{"\"Earth\"",RowBox[{"Entity", "[", 
+            RowBox[{"\"Planet\"", ",", "\"Earth\""}], "]"}],
+          "\"Entity[\\\"Planet\\\", \\\"Earth\\\"]\"","\"planet\""},
+         "Entity"], "[", "\"\<Gravity\>\"", "]"}]}]}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.684542412754583*^9, 3.6845424676465387`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"m", "\[Rule]", "1"}], ",", 
+   RowBox[{"l", "\[Rule]", "1"}], ",", 
+   RowBox[{"g", "\[Rule]", "9.8`3."}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.684542468863908*^9, 3.684542481090555*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Step 1: Define FBDs", "Subsection",
+ CellChangeTimes->{{3.684541537220028*^9, 3.684541594935305*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {AbsoluteThickness[1], StrokeForm[{GrayLevel[0.], Opacity[1.]}], EdgeForm[
+    None], CircleBox[{0.6522222222222227, 0.47777777777777786}, \
+{0.10111111111111115, 0.10000000000000009}]}, 
+   {AbsoluteThickness[1], StrokeForm[{GrayLevel[0.], Opacity[1.]}], EdgeForm[{
+    RGBColor[0., 0., 0.], Opacity[1.], AbsoluteThickness[1]}], EdgeForm[None],
+     ArrowBox[{{0.5733333333333335, 0.5444444444444445}, {0.3555555555555557, 
+     0.7333333333333334}}]}, InsetBox[
+    StyleBox[Cell["",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     Background->GrayLevel[1.]], {0.4338101664417457, 0.6888888888888888}, {
+    Left, Baseline}, {0.35777777777777786, 0.06444444444444446}, {{1., 0.}, {
+    0., 1.}},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Normal Force (fn)",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     Background->GrayLevel[1.]], {0.42888888888888904, 0.7377777777777779}, {
+    Left, Top}, {0.34888888888888886`, Automatic},
+    Alignment->{Left, Top}], 
+   {AbsoluteThickness[1], StrokeForm[{GrayLevel[0.], Opacity[1.]}], EdgeForm[{
+    RGBColor[0., 0., 0.], Opacity[1.], AbsoluteThickness[1]}], EdgeForm[None],
+     ArrowBox[{{0.657777777777778, 0.38888888888888884`}, {0.6600000000000003,
+      0.0955555555555554}}]}, InsetBox[
+    StyleBox[Cell["Gravity force (fg)",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     Background->GrayLevel[1.]], {0.6800000000000002, 0.2666666666666666}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], {
+    {AbsoluteThickness[1], StrokeForm[{RGBColor[1, 0, 0], Opacity[1.]}], 
+     EdgeForm[{RGBColor[0., 0., 0.], Opacity[1.], AbsoluteThickness[1]}], 
+     EdgeForm[None], FaceForm[{RGBColor[1, 0, 0], Opacity[1.]}], 
+     ArrowBox[{{0.9666666666666668, 0.5533333333333335}, {1.1555555555555557`,
+       0.5466666666666666}}]}, 
+    {AbsoluteThickness[1], StrokeForm[{RGBColor[1, 0, 0], Opacity[1.]}], 
+     EdgeForm[{RGBColor[0., 0., 0.], Opacity[1.], AbsoluteThickness[1]}], 
+     EdgeForm[None], FaceForm[{RGBColor[1, 0, 0], Opacity[1.]}], 
+     ArrowBox[{{0.9800000000000002, 0.5466666666666666}, {0.9777777777777781, 
+      0.7377777777777776}}]}, 
+    {StrokeForm[RGBColor[1, 0, 0]], EdgeForm[GrayLevel[0]], EdgeForm[None], 
+     FaceForm[{RGBColor[1, 0, 0], Opacity[1.]}], InsetBox[
+      StyleBox[Cell["x",
+        GeneratedCell->False,
+        CellAutoOverwrite->False,
+        CellBaseline->Baseline,
+        TextAlignment->Left],
+       Background->GrayLevel[1.]], {1.0444444444444445, 0.5066666666666668}, {
+      Left, Baseline},
+      Alignment->{Left, Top}]}, 
+    {StrokeForm[RGBColor[1, 0, 0]], EdgeForm[GrayLevel[0]], EdgeForm[None], 
+     FaceForm[{RGBColor[1, 0, 0], Opacity[1.]}], InsetBox[
+      StyleBox[Cell["y",
+        GeneratedCell->False,
+        CellAutoOverwrite->False,
+        CellBaseline->Baseline,
+        TextAlignment->Left],
+       Background->GrayLevel[1.]], {0.9955555555555557, 0.6533333333333334}, {
+      Left, Baseline},
+      Alignment->{Left, Top}]}}, 
+   {AbsoluteThickness[1], StrokeForm[{GrayLevel[0.], Opacity[1.]}], EdgeForm[
+    None], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAIAWIQ/Z996xOl+gf2e5x7lHKsn9i38z41nXL9gb2L557i
+u5Of2O+W0bx6+tRDnHxZuVLNFw8e2j9yL5A/WPvEvh5IsnxH8B8o8F5S4H2E
+k++kFKlmq/wIbt4S5aVVkZYIPpvqx3Ol/rj5GUDdk1Jx80+pd5avq0bwtUHO
+n4jg92opKjxfjsmHue+9dm4J8z7c/EDdnSfkr2DyG9xUTi9Jf2K/WY9V1uYV
+br6oQWBhBMNjnPwyw7lHS8Rw828YvZScqPPYXs71RllHICbfysQ0b60Tbv4c
+08ZDJyMew+Mfnf/P7KzYs7zH9lFODuf8VZ/YJ1hIZjO14uYfskzdLzf7sf0P
+hy+VxvyYfGXrjcLWGzH50+xXqIr/fGzfavM3Pfw4bv5zW1BE4eZ72k8VmPAZ
+k29iF3Px1yNM/mqHhylrOJ9g8C/ZCNTeO/PYntcJFKG4+XnOlcAcg8kvsD6i
+cWjbY/sLLkcTGX0QfCM3wW2ySU/s+awqrixdgJu/xkKnobMLkz/FPZbLqgKT
+72P+AJgyMfnfPFbGhfVh8l8Bc3lAHCY/wuvrpqIlmPwOE49mE4/H9ju9Hdn7
+d2Hy1Yz/6EkYYfKlfXujV194Yn/EcMOt39K4+UkGKW33WR/b1/rdXH/8GSaf
+QV/C6PD7RzTnw9wD48P8g4sPACb8ik8=
+     "]]}, 
+   {AbsoluteThickness[1], StrokeForm[{GrayLevel[0.], Opacity[1.]}], EdgeForm[
+    None], LineBox[CompressedData["
+1:eJxTTMoPSmViYGCwBmIQfd9fleXJnyf2VtEzdvtufmof4fV1U9GSJ/ZzYp7w
+Z518ar/a4WHKGs4n9hURDMKi7Qi+WPiWfT8KcPO3hGZk3Yl6au9pP1VgwufH
+9kEhMmIHXBD8D0EXDi7WQ/D7Alty2yUQfJ0AC8lsJgT/lN+bI35vnsDNz/Bd
+UGB0DcFn8wFZgMnnddLdeUL+if0SL44TP1ci+C6ee4rvTn5in+dcyfvU9In9
+I/cC+YO1mPwLLkcTGX2e2De4qZxekv7E3shNcJtsEoI/xT2Wy6oCwf/msTIu
+rA/Bh4UnjL/T25G9fxeCX+t3c/3xZwj7YPEBc59jYCEw5J/C+YuD9q6R0XwK
+9x+MDwsPlhBORkv7p/DwSgsFgafw8DwRtnBlYfZTeHjD+LD4gPFh8aUV8fZv
+byMmHxa/MD4s/tH5MPPQ+bD0hIt/K9In3XDuU7j70fmw9ArzLyy9wsLjX6xB
+Stv9p/DwS4iv2bHo61N4+B5KOMGzn/sZnK+SJJJ4W/EZPD6I5Uv79kavvoCb
+D4tvmH0wPsx9MD7M/TA+zH/ofAANysoa
+     "]]}, 
+   {AbsoluteThickness[1], StrokeForm[{GrayLevel[0.], Opacity[1.]}], EdgeForm[
+    None], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQA2IQnedcyfvU9Il9UIiM2AGXp/ZT3GO5rCqe2G8Jzci6
+E/XU3jGwMIJB+Kl9X2BLbrvEU/vFQXvXyGji5rOEcDJa2uPmp4WCAP34J8IW
+rizMJp9PyHyY/3QCLCSzmTD5AAMvlRk=
+     "]]}},
+  ContentSelectable->True,
+  ImagePadding->{{0., 0.}, {0., 0.}},
+  ImageSize->{395.19999999999885`, 297.6},
+  PlotRange->{{0., 1.3333333333333335`}, {0., 1.}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{
+  3.684541638037756*^9, 3.684541677415781*^9, {3.684541750171517*^9, 
+   3.684541819239265*^9}, {3.684541857298979*^9, 3.68454187650557*^9}, 
+   3.684541927638818*^9, {3.684542004997814*^9, 3.684542014972217*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Step 2: Define vector force equations", "Subsection",
+ CellChangeTimes->{{3.6845419422384377`*^9, 3.684541948536356*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
+   RowBox[{"\[Theta]", ",", "fn", ",", "fg"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]", "[", "t_", "]"}], ":=", 
+   RowBox[{"ArcTan", "[", 
+    RowBox[{
+     RowBox[{"y", "[", "t", "]"}], ",", 
+     RowBox[{"x", "[", "t", "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fn", "=", 
+   RowBox[{
+    RowBox[{"tension", "[", "t", "]"}], "*", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Theta]", "[", "t", "]"}], "]"}]}], ",", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"\[Theta]", "[", "t", "]"}], "]"}]}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fg", "=", 
+   RowBox[{"m", " ", "g", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", 
+      RowBox[{"-", "1"}]}], "}"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.684541955392618*^9, 3.6845419919355907`*^9}, {
+  3.684542022868853*^9, 3.684542131287363*^9}, {3.6845421756983423`*^9, 
+  3.6845422118870173`*^9}, {3.684542333265992*^9, 3.684542358581292*^9}, {
+  3.684542486244048*^9, 3.6845424865309753`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Step 3: Determine equations of motion", "Subsection",
+ CellChangeTimes->{{3.6845422308066483`*^9, 3.6845422390998907`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eq1", "=", 
+  RowBox[{
+   RowBox[{"fn", "+", "fg"}], "\[Equal]", 
+   RowBox[{"m", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "''"}], "[", "t", "]"}], ",", 
+      RowBox[{
+       RowBox[{"y", "''"}], "[", "t", "]"}]}], "}"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6845422456492157`*^9, 3.684542278529585*^9}, {
+  3.684542730713696*^9, 3.684542752027462*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"tension", "[", "t", "]"}], " ", 
+       RowBox[{"x", "[", "t", "]"}]}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"y", "[", "t", "]"}], "2"]}]]]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "g"}], " ", "m"}], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"tension", "[", "t", "]"}], " ", 
+       RowBox[{"y", "[", "t", "]"}]}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"y", "[", "t", "]"}], "2"]}]]]}]}], "}"}], "\[Equal]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"m", " ", 
+     RowBox[{
+      SuperscriptBox["x", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}], ",", 
+    RowBox[{"m", " ", 
+     RowBox[{
+      SuperscriptBox["y", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}]}], "}"}]}]], "Output",
+ CellChangeTimes->{
+  3.684542280981031*^9, 3.684542491691784*^9, {3.68454275011001*^9, 
+   3.684542752488366*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"constraint", "=", 
+  RowBox[{
+   RowBox[{"Norm", "@", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"x", "[", "t", "]"}], ",", 
+      RowBox[{"y", "[", "t", "]"}]}], "}"}]}], "\[Equal]", "l"}]}]], "Input",
+ CellChangeTimes->{{3.684542299911594*^9, 3.68454231895335*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SqrtBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Abs", "[", 
+      RowBox[{"x", "[", "t", "]"}], "]"}], "2"], "+", 
+    SuperscriptBox[
+     RowBox[{"Abs", "[", 
+      RowBox[{"y", "[", "t", "]"}], "]"}], "2"]}]], "\[Equal]", 
+  "l"}]], "Output",
+ CellChangeTimes->{3.6845423217071667`*^9, 3.6845423627540407`*^9, 
+  3.684542493023028*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Step 4: Solve the DiffEQs", "Subsection",
+ CellChangeTimes->{{3.684542366303442*^9, 3.684542372192812*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Join", "[", 
+  RowBox[{
+   RowBox[{"Thread", "[", "eq1", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"constraint", ",", 
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.6845428059522877`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"tension", "[", "t", "]"}], " ", 
+       RowBox[{"x", "[", "t", "]"}]}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"y", "[", "t", "]"}], "2"]}]]]}], "\[Equal]", 
+    RowBox[{"m", " ", 
+     RowBox[{
+      SuperscriptBox["x", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "g"}], " ", "m"}], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"tension", "[", "t", "]"}], " ", 
+       RowBox[{"y", "[", "t", "]"}]}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"y", "[", "t", "]"}], "2"]}]]]}], "\[Equal]", 
+    RowBox[{"m", " ", 
+     RowBox[{
+      SuperscriptBox["y", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}]}], ",", 
+   RowBox[{
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"Abs", "[", 
+        RowBox[{"x", "[", "t", "]"}], "]"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"Abs", "[", 
+        RowBox[{"y", "[", "t", "]"}], "]"}], "2"]}]], "\[Equal]", "l"}], ",", 
+   
+   RowBox[{
+    RowBox[{"x", "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.68454280645258*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Thread", "@", "eq1"}]], "Input",
+ CellChangeTimes->{{3.6845430727012978`*^9, 3.684543076790687*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"tension", "[", "t", "]"}], " ", 
+       RowBox[{"x", "[", "t", "]"}]}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"y", "[", "t", "]"}], "2"]}]]]}], "\[Equal]", 
+    RowBox[{"m", " ", 
+     RowBox[{
+      SuperscriptBox["x", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "g"}], " ", "m"}], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"tension", "[", "t", "]"}], " ", 
+       RowBox[{"y", "[", "t", "]"}]}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x", "[", "t", "]"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"y", "[", "t", "]"}], "2"]}]]]}], "\[Equal]", 
+    RowBox[{"m", " ", 
+     RowBox[{
+      SuperscriptBox["y", "\[Prime]\[Prime]",
+       MultilineFunction->None], "[", "t", "]"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.684543077290613*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NDSolveValue", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Thread", "[", "eq1", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"constraint", ",", 
+        RowBox[{
+         RowBox[{"x", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+        RowBox[{
+         RowBox[{"y", "[", "0", "]"}], "\[Equal]", 
+         RowBox[{"-", "l"}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", "2"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}]}], 
+     "}"}], "/.", "parameters"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "tension"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"Method", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<IndexReduction\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Pantelides\>\"", ",", " ", 
+        RowBox[{
+        "\"\<ConstraintMethod\>\"", "\[Rule]", "\"\<Projection\>\""}]}], 
+       "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6845423754707823`*^9, 3.684542397206354*^9}, {
+   3.6845424986715927`*^9, 3.684542596646615*^9}, {3.68454264473418*^9, 
+   3.684542647324479*^9}, 3.6845427030718946`*^9, {3.684542754558373*^9, 
+   3.684542789402482*^9}, {3.684542859720771*^9, 3.684542864206745*^9}, {
+   3.684542913699864*^9, 3.684542921683783*^9}, {3.684542985491786*^9, 
+   3.684542995579728*^9}, {3.684543044918276*^9, 3.684543048939312*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join","heads",
+   "\"Heads \\!\\(\\*RowBox[{\\\"NDSolve`EvaluateWithSolutionData\\\"}]\\) \
+and \\!\\(\\*RowBox[{\\\"List\\\"}]\\) at positions \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) and \\!\\(\\*RowBox[{\\\"2\\\"}]\\) are \
+expected to be the same.\"",2,65,54,30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543049907546*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join","heads",
+   "\"Heads \\!\\(\\*RowBox[{\\\"NDSolve`EvaluateWithSolutionData\\\"}]\\) \
+and \\!\\(\\*RowBox[{\\\"List\\\"}]\\) at positions \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) and \\!\\(\\*RowBox[{\\\"2\\\"}]\\) are \
+expected to be the same.\"",2,65,55,30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543050190422*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join","heads",
+   "\"Heads \\!\\(\\*RowBox[{\\\"NDSolve`EvaluateWithSolutionData\\\"}]\\) \
+and \\!\\(\\*RowBox[{\\\"List\\\"}]\\) at positions \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) and \\!\\(\\*RowBox[{\\\"2\\\"}]\\) are \
+expected to be the same.\"",2,65,56,30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543050467771*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Join\\\", \\\"::\\\", \
+\\\"heads\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,65,57,30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543050743305*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NDSolveValue","nlnum1",
+   "\"The function value \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"1.`\\\"}], \\\",\\\", \\\"0.`\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", RowBox[{\\\"2.`\\\", \\\" \\\", \
+RowBox[{SuperscriptBox[\\\"Abs\\\", \\\"\[Prime]\\\", Rule[MultilineFunction, \
+None]], \\\"[\\\", RowBox[{\\\"-\\\", \\\"1.`\\\"}], \\\"]\\\"}]}], \
+\\\"+\\\", RowBox[{\\\"8.`\\\", \\\" \\\", \
+SuperscriptBox[RowBox[{SuperscriptBox[\\\"Abs\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"0.`\\\", \\\"]\\\"}], \
+\\\"2\\\"]}]}], \\\")\\\"}]}]}], \\\",\\\", RowBox[{\\\"-\\\", \
+\\\"11.8`\\\"}]}], \\\"}\\\"}]\\) is not a list of numbers with dimensions \
+\\!\\(\\*RowBox[{\\\"{\\\", \\\"5\\\", \\\"}\\\"}]\\) when the arguments are \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \\\"1.`\\\", \
+\\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"2.`\\\", \\\",\\\", \\\"1.`\\\", \\\",\
+\\\", RowBox[{\\\"-\\\", \\\"1.`\\\"}], \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\
+\"1.`\\\"}], \\\"}\\\"}]\\).\"",2,65,58,30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543051157669*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NDSolveValue","nlnum1",
+   "\"The function value \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"1.`\\\"}], \\\",\\\", \\\"0.`\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \
+\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"0.5`\\\", \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \
+\\\"+\\\", RowBox[{\\\"2.`\\\", \\\" \\\", \
+RowBox[{SuperscriptBox[\\\"Abs\\\", \\\"\[Prime]\\\", Rule[MultilineFunction, \
+None]], \\\"[\\\", RowBox[{\\\"-\\\", \\\"1.`\\\"}], \\\"]\\\"}]}], \
+\\\"+\\\", RowBox[{\\\"8.`\\\", \\\" \\\", \
+SuperscriptBox[RowBox[{SuperscriptBox[\\\"Abs\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"0.`\\\", \\\"]\\\"}], \
+\\\"2\\\"]}]}], \\\")\\\"}]}]}], \\\",\\\", RowBox[{\\\"-\\\", \
+\\\"11.8`\\\"}]}], \\\"}\\\"}]\\) is not a list of numbers with dimensions \
+\\!\\(\\*RowBox[{\\\"{\\\", \\\"5\\\", \\\"}\\\"}]\\) when the arguments are \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \\\"1.`\\\", \
+\\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"2.`\\\", \\\",\\\", \\\"1.`\\\", \\\",\
+\\\", RowBox[{\\\"-\\\", \\\"1.`\\\"}], \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\
+\"1.`\\\"}], \\\"}\\\"}]\\).\"",2,65,59,30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543051574489*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NDSolveValue","ndsnf",
+   "\"Unable to create a NumericalFunction for the expression \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[RowBox[{RowBox[{\\\"tension\\\", \\\"[\\\", \\\"t\\\", \
+\\\"]\\\"}], \\\" \\\", RowBox[{\\\"x\\\", \\\"[\\\", \\\"t\\\", \
+\\\"]\\\"}]}], SqrtBox[RowBox[{SuperscriptBox[RowBox[{\\\"x\\\", \\\"[\\\", \
+\\\"t\\\", \\\"]\\\"}], \\\"2\\\"], \\\"+\\\", SuperscriptBox[RowBox[{\\\"y\\\
+\", \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\"2\\\"]}]]]}], \\\"-\\\", \
+RowBox[{SuperscriptBox[\\\"x\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \
+\\\",\\\", RowBox[{RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"+\\\", \
+SqrtBox[RowBox[{SuperscriptBox[RowBox[{\\\"Abs\\\", \\\"[\\\", \
+RowBox[{\\\"x\\\", \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\"]\\\"}], \
+\\\"2\\\"], \\\"+\\\", SuperscriptBox[RowBox[{\\\"Abs\\\", \\\"[\\\", \
+RowBox[{\\\"y\\\", \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\"]\\\"}], \
+\\\"2\\\"]}]]}], \\\",\\\", FractionBox[RowBox[{RowBox[{\\\"2\\\", \\\" \\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\" \
+\\\", RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}], RowBox[{\\\"2\\\
+\", \\\" \\\", \
+SqrtBox[RowBox[{SuperscriptBox[RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\
+\"\[RightSkeleton]\\\"}], \\\"2\\\"], \\\"+\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}]]}]], \
+\\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+FractionBox[SuperscriptBox[RowBox[{\\\"(\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\")\
+\\\"}], \\\"2\\\"], RowBox[{\\\"4\\\", \\\" \\\", \
+SuperscriptBox[RowBox[{\\\"(\\\", RowBox[{SuperscriptBox[RowBox[{\\\"Abs\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"2\\\"], \\\"+\\\", SuperscriptBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"2\\\"]}], \
+\\\")\\\"}], RowBox[{\\\"3\\\", \\\"/\\\", \\\"2\\\"}]]}]]}], \\\"+\\\", \
+FractionBox[RowBox[{RowBox[{\\\"2\\\", \\\" \\\", \
+SuperscriptBox[RowBox[{SuperscriptBox[\\\"Abs\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", RowBox[{\\\"x\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}], \\\"]\\\"}], \\\"2\\\"], \\\" \\\", \
+SuperscriptBox[RowBox[{SuperscriptBox[\\\"x\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \
+\\\"2\\\"]}], \\\"+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"4\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \
+RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}]}], \
+RowBox[{\\\"2\\\", \\\" \\\", \
+SqrtBox[RowBox[{SuperscriptBox[RowBox[{\\\"Abs\\\", \\\"[\\\", \
+RowBox[{\\\"x\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[RowBox[{\\\"Abs\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}], \\\"2\\\"]}]]}]]}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"9.8`3.\\\"}], \\\"+\\\", FractionBox[RowBox[{RowBox[{\\\"tension\\\", \
+\\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"y\\\", \\\"[\\\", \
+\\\"t\\\", \\\"]\\\"}]}], SqrtBox[RowBox[{SuperscriptBox[RowBox[{\\\"x\\\", \
+\\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\"2\\\"], \\\"+\\\", \
+SuperscriptBox[RowBox[{\\\"y\\\", \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \
+\\\"2\\\"]}]]], \\\"-\\\", RowBox[{SuperscriptBox[\\\"y\\\", \\\"\[Prime]\
+\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \
+\\\"]\\\"}]}]}], \\\"}\\\"}]\\) in the method \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Projection\\\\\\\"\\\"}]\\).\"",2,65,60,
+   30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543052033711*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NDSolveValue","initf",
+   "\"The initialization of the method \
+\\!\\(\\*RowBox[{\\\"NDSolve`StateSpace\\\"}]\\) failed.\"",2,65,61,
+   30892567047422365322,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.684542508958045*^9, 3.684542597294014*^9}, {
+   3.684542635762917*^9, 3.68454264767164*^9}, 3.6845427047854633`*^9, 
+   3.684542790775319*^9, 3.684542866159783*^9, 3.684542922723624*^9, 
+   3.6845429967668962`*^9, 3.684543052057138*^9}],
+
+Cell[BoxData["None"], "Output",
+ CellChangeTimes->{{3.684542508977316*^9, 3.68454259736384*^9}, {
+   3.684542635838133*^9, 3.684542647730421*^9}, 3.6845427069615498`*^9, 
+   3.684542792880289*^9, 3.684542868313377*^9, 3.684542924898234*^9, 
+   3.6845429988880796`*^9, 3.684543052085754*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"context", "=", "\"\<s1`\>\""}], "}"}], ",", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Context", "[", "]"}], "\[Equal]", "context"}], ",", 
+      RowBox[{"End", "[", "]"}]}], "]"}]}], "]"}], ";", 
+  RowBox[{"Dynamic", "[", 
+   RowBox[{"Refresh", "[", 
+    RowBox[{
+     RowBox[{"Context", "[", "]"}], ",", 
+     RowBox[{"UpdateInterval", "\[Rule]", "1"}]}], "]"}], "]"}]}]], "Input",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{3.684541517133246*^9}]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -29,7 +727,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{960, 1016},
-WindowMargins->{{-457, Automatic}, {27, Automatic}},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 InputAliases->{"intt" -> RowBox[{"\[Integral]", 
      RowBox[{"\[SelectionPlaceholder]", 
